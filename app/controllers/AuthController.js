@@ -1,4 +1,3 @@
-const sequelize = require("../database/db");
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
@@ -9,7 +8,6 @@ require("dotenv").config();
  * @param {Object} res 
  */
 exports.login = async (req, res) => {
-  console.log("login....");
   try {
     const { email, password } = req.body;
     // Fetches user
