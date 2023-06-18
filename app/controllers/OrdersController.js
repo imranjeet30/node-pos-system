@@ -35,7 +35,6 @@ exports.createOrder = async(req, res) => {
  */
 exports.getsOrder = async (req, res) => {
     try{
-        console.log('All orders');
         const result = await Order.findAll({
             include: [
                 {model: OrderDetail}
@@ -58,7 +57,6 @@ exports.getsOrder = async (req, res) => {
 exports.getSingleOrder = async(req, res) => {
     try{
         const {id} = req.params;
-        console.log(id);
         const result = await Order.findOne({
             where:{
                 id
