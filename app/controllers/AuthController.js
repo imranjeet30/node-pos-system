@@ -28,10 +28,11 @@ exports.login = async (req, res) => {
           process.env.JWT_SECRET
         );
         res.send({ token, user });
+        res.end();
       } else {
         res.send({ error: "Passsword doesn't match" });
+        res.end();
       }
-      res.end();
     } else {
       res.send({ error: "Please enter a valid email address" });
       res.end();
@@ -39,7 +40,6 @@ exports.login = async (req, res) => {
   } catch (err) {
     res.send({ error: err.message });
   }
-  res.send("Login route hit");
 };
 
 /**
@@ -69,5 +69,6 @@ exports.signup = async (req, res) => {
     }
   } catch (err) {
     res.send({ error: err.message });
+    res.end();
   }
 };
